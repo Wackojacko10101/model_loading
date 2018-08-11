@@ -124,20 +124,17 @@ int main()
 		// setup bone transformations
 		for (int i = 0; i < 100; i++)
 		{
-			glm::mat4 boneTemplate;
+			glm::mat4 boneTemplate(1.0f);
 			std::stringstream input;
 			input << "gBones" << "[" << i << "]";
 			std::string output = "";
 			input >> output;
 			//NOTE:: Name and Bone Mat4s seem to be as expected
-			ourShader.setMat4(output.c_str(), boneTemplate);
+			ourShader.setMat4(output, boneTemplate);
 		}
 
 		// render the loaded model
 		ourModel.Draw(ourShader);
-
-		
-
 
 		// glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
 		// -------------------------------------------------------------------------------
